@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Reference files located locally on MBP -->
+
+<head>
+  <title>Best Bike Stops</title>
+  <script src="http://maps.google.com/maps/api/js"></script>
+  <script src="file://Users/Users/Iain/Documents/Web Dev/hpneo-gmaps-7f05348/gmaps.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <style type="text/css">
+    #map {
+      width: 1200px;
+      height: 400px;
+    }
+    .popup_title {
+      font-size: xx-large;
+    }
+  </style>
+
+  <!-- FontAwesome icons - Still to be styled -->
+
+</head>
+<h1>Best Bike Stops</h1>
+<p>
+  <div style="font-size:x-large; color:#081A2E">
+  <i class="fas fa-utensils" title="Food"></i>
+  <i class="fas fa-coffee" title="Coffe/Tea"></i>
+  <i class="fab fa-product-hunt" title="Bike Parking"></i>
+  <i class="fas fa-lock" title="Bike Locks"></i>
+  <i class="fas fa-tint" title="Water Refils"></i>
+  <i class="fas fa-wrench" title="Basic Bike Tools"></i>
+  <i class="fas fa-wifi" title="Wi-Fi"></i>
+  <i class="fas fa-battery-half" title="Phone Charging"></i>
+  <i class="fas fa-male" title="Male Toilet"></i>
+  <i class="fas fa-female" title="Female Toilet"></i>
+  <i class="fas fa-money-bill-alt" title="Cash Payment"></i>
+  <i class="fas fa-credit-card" title="Credit/Debit Card Payment"></i>
+  <i class="fab fa-cc-apple-pay" title="Apple/Android Pay"></i>
+  </div>
+</p>
+
+<!-- Main map feature - Each map marker is listed below, however the plan would be to have a database to store these, however need to understand how that would work! -->
+<body>
+  <div id="map"></div>
+  <div id='popup' style='display:none'>
+    You should not see this.
+  </div>
+  <script>
+     // function popup (title, content) {
+        // find the 'popup' element : hint: document.getElementById
+        // const el = 
+        // change the element's style to make it visible
+
+        // change the element's content
+        // Element childElement = document.createElement
+        // el.appendChild(..)
+        // add event listener to close it
+        // el.addEventListener('click', function() {...});
+     // } 
+
+    var map = new GMaps({
+      el: '#map',
+      lat: 55.859779,
+      lng: -3.754668
+    });
+
+    var contentString_1 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">The Apple Pie</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>The Apple Pie</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+            'Nulla viverra diam id malesuada convallis.</p>' +
+            ' <i class="fas fa-utensils"></i><i class="fas fa-coffee"></i><i class="fab fa-product-hunt"></i><i class="fas fa-money-bill-alt"></i>' +
+            '</div>';
+
+  map.addMarker({
+  lat: 55.700138,
+  lng: -3.624903,
+  title: 'The Apple Pie',
+  click: function () {
+    popup('The Apple Pie', contentString_1);
+  }
+});
+
+   var contentString_2 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Cafe Aroma</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Cafe Aroma</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+            'Nulla viverra diam id malesuada convallis.</p>'
+            '</div>';
+
+  map.addMarker({
+  lat: 55.624523,
+  lng: -3.521312,
+  title: 'Cafe Aroma',
+  infoWindow: {
+  content: contentString_2
+    }
+});
+
+  var contentString_3 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Big Red Barn</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Big Red Barn</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+            'Nulla viverra diam id malesuada convallis.</p>'
+            '</div>';
+
+  map.addMarker({
+  lat: 55.676537,
+  lng: -3.490698,
+  title: 'Big Red Barn',
+  infoWindow: {
+  content: contentString_3
+    }
+});
+
+    var contentString_4 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Powmill Milk Bar</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Powmill Milk Bar</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+            'Nulla viverra diam id malesuada convallis.</p>'
+            '</div>';
+
+  map.addMarker({
+  lat: 56.167809,
+  lng: -3.578757,
+  title: 'Powmill Milk Bar',
+  infoWindow: {
+  content: contentString_4
+    }
+});
+
+    var contentString_5 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Tinto Hill Tearoom</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Tinto Hill Tearoom</b>, Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+            'Nulla viverra diam id malesuada convallis.</p>'
+            '</div>';
+
+  map.addMarker({
+  lat: 55.622124,
+  lng: -3.644043,
+  title: 'Tinto Hill Tearoom',
+  infoWindow: {
+  content: contentString_5
+    }
+});
+
+   </script>
+</body>
+</html>
